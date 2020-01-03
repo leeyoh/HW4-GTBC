@@ -5,7 +5,7 @@ const states = {
 	END: 3, 
 	HighScore: 4,
 }
-
+var selector = document.getElementById("slide-container")
 var header = document.getElementById("header");
 var main = document.getElementById("main");
 var state = states.INIT; 
@@ -64,7 +64,7 @@ submitBtn.addEventListener("click", function(event) {
         var name = initalText.value; 
         var score = userState.RemTime
         userState.HighScore.push([name,score])
-        console.log(userState.HighScore)
+
     }
 });
 
@@ -84,6 +84,9 @@ backBtn.addEventListener("click", function(event) {
 });
 
 var correct = true; 
+function setQuiz(version){
+	userState.QuizVer = version;
+}
 
 function paceTimer(){
     if(correct){
@@ -118,7 +121,6 @@ function paceTimer(){
         )(i);
         correct = false; 
     }
-    
     userState.RemTime--;
     if(userState.RemTime <= 0){
         clearInterval(quizHandle)
@@ -149,21 +151,31 @@ function mainloop(){
         case states.MAIN: 
             if(userState.prevState == states.INIT || userState.prevState == states.HighScore){
                 userState.Progress = 0; 
-                questP.textContent = questions[userState.Progress].title
+                
                 userState.RemTime = 50; 
                 main.innerHTML = ''
                 main.appendChild(startBtn)
                 main.appendChild(scoreBtn)
                 userState.Progress = 0;
                 userState.prevState = states.MAIN;
+                selector.style.display= "block";
             }
             break; 
 
         case states.QUIZ: 
             if(userState.prevState == states.MAIN){
-           
-                header.appendChild(timeCounter)
+
+				if(userState.QuizVer == 0){
+				questions = questions1
+				}
+				if(userState.QuizVer == 1){
+				questions = questions2
+				}
+				console.log(userState.QuizVer )
+				questP.textContent = questions[userState.Progress].title
+           		selector.style.display= "none";
                 main.innerHTML = ''
+                main.appendChild(timeCounter)
                 main.appendChild(questP)
                 main.appendChild(answersLi)
                 userState.prevState = states.QUIZ;
@@ -195,7 +207,7 @@ function mainloop(){
                 main.appendChild(highText)
                 main.appendChild(backBtn)
                 userState.HighScore =userState.HighScore.sort(function(a,b){return b[1] - a[1];}); 
-
+                selector.style.display= "none";
                 var maxlen = 0; 
 
                 if(userState.HighScore.length >= 10){

@@ -1,17 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quiz</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Quiz</title>
 </head>
+	<link rel="stylesheet" type="text/css" href="./Assets/style.css"></link>
 	<div id="header"></div>
 <body>  
-    <h1 class="time"></h1>
-    <div id="main"></div>
-    <script src="./Assets/variables.js"></script>
-    <script src="./Assets/quiz.js"></script>
-    
+
+		<!-- Slideshow container -->
+		<div id = "slide-container" class="slideshow-container" 
+			style="display:none;">
+			<!-- Full-width images with number and caption text -->
+			<div class="mySlides fade">
+				<div class="numbertext">1 / 3</div>
+				<img src="./Assets/img/sheep.svg" class = "center">
+			</div>
+
+			<div class="mySlides fade">
+				<div class="numbertext">2 / 3</div>
+				<img src="./Assets/img/cat.svg"  class = "center">
+			</div>
+			<br>
+
+			<!-- The dots/circles -->
+			<div style="text-align:center">
+				<span id = "dot1" class="dot" onclick="currentSlide(1); setQuiz(0)"></span>
+				<span id = "dot2" class="dot" onclick="currentSlide(2);setQuiz(1)"></span>
+			</div>
+		</div>
+
+
+		<h1 class="time"></h1>
+		<div id="main"></div>
+		<script src="./Assets/slideshow.js"></script>
+		<script src="./Assets/variables.js"></script>
+		<script src="./Assets/quiz.js"></script>
+		
 </body>
 </html>
