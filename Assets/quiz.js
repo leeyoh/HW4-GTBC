@@ -28,6 +28,7 @@ timeCounter.id = "score";
 
 //~~~~~~~~~~~~~~~~~~ START ~~~~~~~~~~~~~~~~~~~~~~//
 var startBtn = document.createElement('button'); 
+startBtn.setAttribute("class","button1")
 startBtn.textContent = "START"; 
 startBtn.addEventListener("click", function(event) {
     event.preventDefault();
@@ -37,6 +38,7 @@ startBtn.addEventListener("click", function(event) {
 });
 var scoreBtn = document.createElement('button'); 
 scoreBtn.textContent = "HIGH SCORE"; 
+scoreBtn.setAttribute("class","button2")
 scoreBtn.addEventListener("click", function(event) {
     event.preventDefault();
     if(userState.State == states.MAIN){
@@ -154,8 +156,8 @@ function mainloop(){
                 
                 userState.RemTime = 50; 
                 main.innerHTML = ''
-                main.appendChild(startBtn)
-                main.appendChild(scoreBtn)
+                selector.appendChild(startBtn)
+                selector.appendChild(scoreBtn)
                 userState.Progress = 0;
                 userState.prevState = states.MAIN;
                 selector.style.display= "block";
