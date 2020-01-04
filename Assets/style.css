@@ -106,6 +106,7 @@
   height: 8%;
   top: 50%;
   left: 50%;
+  border-radius: 10px;
 }
 
 .button2{
@@ -116,12 +117,63 @@
   height: 8%;
   top: 65%;
   left: 50%;
+  border-radius: 10px;
 }
 .scores{
-  font-size: 22px;
+  font-size: 28px;
+  text-align: center;
+  list-style-type: none;
+
 }
-#questionList{
-  margin: 0px 100px 0px 100px;
+.initals{
+  border: none;
+  font-size: 22px;
+  text-align: center;
+  text-overflow: wrap;
+  width: 100%;
+  height: 80vh;
+  margin: auto auto;
+}
+.main{
+  width: 50%;
+  height: 40px;
+  background-color: black;
+  color: white;
+  position:: absolute;
+  display:table;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+#highscoreList{
+  height: 80vh;
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+#highscoreListN{
+  height: 80vh;
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+
+#title{
+  font-size: 22px;
+  text-align: center;
+  margin: 0 auto;
+}
+.ans{
+  font-size: 18px;
+  text-align: center;
+  list-style-type: none;
+  background-color: black;
+  color: white;
+  height: 40px;
+  border-radius: 8px;
+  width: 70%;
+  margin: 10px auto;
+  line-height: 36px;
 }
 
 @-webkit-keyframes fade {
