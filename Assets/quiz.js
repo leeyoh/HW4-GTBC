@@ -220,6 +220,7 @@ function mainloop(){
                 for(var i = 0; i < maxlen; i++)
                 {   
                     var hs = document.createElement('li');
+                    hs.setAttribute("class",'scores')
                     hs.innerHTML = userState.HighScore[i]; 
                     scoresLi.appendChild(hs);
                 }
